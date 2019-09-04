@@ -3,19 +3,12 @@ import './Header.css';
 
 function Header({getLocation}) {
 
-  const [state, setState] = useState({
-    city: undefined
-  })
+  //component state
+  const [city, setCity] = useState(undefined);
+  const [country, setCountry] = useState(undefined);
 
-  const handleChange = e => {
-    setState({
-      city: e.target.value
-    })
-  }
-
-  const data = e => {
+  const submitLocation = e => {
     e.preventDefault();
-    getLocation(state);
   }
 
   return (
@@ -25,14 +18,15 @@ function Header({getLocation}) {
 
           <ul className="headerList">
             <li>
-              <form onSubmit={getLocation}>
+              <form onSubmit={submitLocation}>
                 <input
                   type="text"
                   id="search_input"
                   name="city"
-                  placeholder={state.city}
+                  placeholder="type your city"
                   aria-label="type a city to get weather and latest news"
-                  onChange={handleChange}
+                  value={city}
+                  onChange={(e)=>setCity(e.target.value) }
                 />
                 <button id="search_button" type="submit"><i className="fas fa-lg fa-search"></i></button>
               </form>

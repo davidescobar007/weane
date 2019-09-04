@@ -4,7 +4,7 @@ import Header from './Components/header/Header';
 import Home from './Components/Home/Home';
 
 import store from './store';
-import { provider } from 'react-redux';
+import { Provider } from 'react-redux';
 function App() {
 
   const getLocation = data => {
@@ -12,14 +12,14 @@ function App() {
   }
 
   return (
-    <provider store={store}>
+    <Provider store={store}>
       <div className="App">
         <Header
           getLocation={getLocation}
         />
         <Home></Home>
       </div>
-    </provider>
+    </Provider>
   );
 }
 

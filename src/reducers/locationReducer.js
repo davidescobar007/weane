@@ -1,5 +1,5 @@
 const initialState = {
-    location:["Hey Berlin, I love you, you are beautiful"],
+    location:["Hey Berlin, I love you, you are beautiful", 5],
     city:["Berlin"]
 }
 
