@@ -1,7 +1,10 @@
 import React from 'react'
 import './Home.css';
+import { useSelector } from 'react-redux';
 
 function Home() {
+    const city = useSelector((state) => state.location);
+    console.log(city);
     return (
         <div>
             <section>

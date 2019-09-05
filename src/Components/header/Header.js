@@ -3,24 +3,37 @@ import './Header.css';
 import { useDispatch } from 'react-redux';
 import { addLocationAction } from '../../actions/locationActions';
 
+
 function Header({ getLocation }) {
 
 
   //component state
-  const [city, setCity] = useState(undefined);
-  const [country, setCountry] = useState(undefined);
+  const [city, setCity] = useState("");
+  // const [country, setCountry] = useState(undefined);
+  // const [country, setCountry] = useState(undefined);
 
   //dispatch to start the actions
   const dispatch = useDispatch();
   const addNewLocation = city => dispatch(addLocationAction(city));
 
+  const askAPI = async (e) => {
+    
+    const appid = '36e2fa16b70a4422ed609a5ad91f71f5';
+    
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${appid}&units=metric`;
 
-  const submitLocation = e => {
-    e.preventDefault();
+    const response = await fetch(url);
+    const result = await response.json();
+    console.log(result)
+  }
 
+  const submitLocation = e => {    
+    e.preventDefault();    
     addNewLocation({
       city : city
     })
+    askAPI();
+    setCity("")
   }
 
   return (

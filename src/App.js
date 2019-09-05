@@ -7,16 +7,10 @@ import store from './store';
 import { Provider } from 'react-redux';
 function App() {
 
-  const getLocation = data => {
-    console.log(data);
-  }
-
   return (
     <Provider store={store}>
       <div className="App">
-        <Header
-          getLocation={getLocation}
-        />
+        <Header/>
         <Home></Home>
       </div>
     </Provider>
