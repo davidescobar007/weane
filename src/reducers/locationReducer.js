@@ -1,5 +1,5 @@
 const initialState = {
-    location:[25],      
+    location:["Berlin"]
 }
 
 export default function(state = initialState, action){
@@ -7,7 +7,7 @@ export default function(state = initialState, action){
         //ADD_lOCATION  is the action to be done
         case 'ADD_LOCATION': return {
            
-            location:[ action.payload]
+            location:[ action.payload ]
         }
         default:
             return state;

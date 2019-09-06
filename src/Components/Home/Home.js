@@ -1,10 +1,34 @@
 import React from 'react'
 import './Home.css';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { addLocationAction } from '../../actions/locationActions';
 
 function Home() {
-    const city = useSelector((state) => state.location);
-    console.log(city);
+    
+    const location = useSelector(state => state.location[0].location === undefined ? state.location : state.location[0].location);
+    
+    console.log(location);
+    //dispatch to start the action 
+    const dispatch = useDispatch();
+    const addNewLocation = location => dispatch(addLocationAction(location));
+
+    const submitLocation = async (e) => {
+        e.preventDefault();
+        const appid = '36e2fa16b70a4422ed609a5ad91f71f5';
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=${appid}&units=metric`;
+        const response = await fetch(url);
+        const result = await response.json();
+        if (result.name) {
+            addNewLocation({
+                temperature: result.main.temp,
+                description: result.weather[0].description
+            })
+        } else {
+            alert("Please type a valid city!");
+        }        
+    }
+
+
     return (
         <div>
             <section>
@@ -12,11 +36,11 @@ function Home() {
                     <a href="#!" className="home_card child">
                         <article>
                             <header>
-                                <h2>Bucaramanga</h2>
+                                <h2>{location}</h2>
                             </header>
                             <div>
-                                <h4>29°c</h4>
-                                <h4>Sunny</h4>
+                                <h4>{}</h4>
+                                <h4>{}</h4>
                             </div>
                         </article>
                     </a>
