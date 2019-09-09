@@ -19,22 +19,15 @@ function Header({ getLocation }) {
     const appid = '36e2fa16b70a4422ed609a5ad91f71f5';
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=${appid}&units=metric`;
     const response = await fetch(url);
-    const result = await response.json();    
-    // console.log(result.weather[0].description)
+    const result = await response.json();        
     if (result.name) {
       addNewLocation({
-        location: location      
-      })   
+        location: result.name
+      });   
     }else{
       alert("Please type a valid city!");
-    }
-    // navigator.geolocation.getCurrentPosition(function(location) {
-    //   console.log(location.coords.latitude);
-    //   console.log(location.coords.longitude);
-    //   console.log(location.coords.accuracy);
-    // });
-    
-    setLocation("")
+    }  
+    setLocation("");
   }
 
   return (

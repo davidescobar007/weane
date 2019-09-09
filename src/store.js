@@ -1,5 +1,5 @@
 import { createStore } from 'redux';
-import reducer from './reducers/locationReducer';
+import reducer from './reducers/indexReducer';
 
 //const initialState = [];
 
