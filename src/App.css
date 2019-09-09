@@ -4,7 +4,7 @@
 }
 .container{
   display:flex;    
-  flex-wrap: wrap;  
+  flex-wrap: wrap; 
 }
 .child{
   flex-grow:1;
