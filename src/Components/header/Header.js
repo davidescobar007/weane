@@ -17,18 +17,20 @@ function Header({ getLocation }) {
   const submitLocation = async (e) => {
     e.preventDefault();
     const appid = '36e2fa16b70a4422ed609a5ad91f71f5';
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=${appid}&units=metric`;
-    const response = await fetch(url);
-    const result = await response.json();        
-    if (result.name) {
+    const cityUrl = `https://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=${appid}&units=metric`;
+    const cityResponse = await fetch(cityUrl);
+    const cityResult = await cityResponse.json();
+    if (cityResult.name) {
       addNewLocation({
-        location: result.name
-      });   
-    }else{
+        location: cityResult.name
+      });
+    } else {
       alert("Please type a valid city!");
-    }  
+    }
     setLocation("");
   }
+
+
 
   return (
     <div className="App">

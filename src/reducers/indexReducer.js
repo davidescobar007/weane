@@ -6,5 +6,5 @@ import currencyReducer from './currencyReducer.js';
 export default combineReducers({
     location : locationReducer,
     weather : weatherReducer,
-    currency : currencyReducer,
+    country : currencyReducer,
 })

@@ -1,7 +1,7 @@
 import React from 'react'
 import './Home.css';
 import Weather from '../Weather/weatherCard';
-import CurrencyCard from '../Currency/currencyCard'
+import CountryCard from '../Country/countryCard';
 
 function Home() {
 
@@ -22,7 +22,7 @@ function Home() {
                         </article>
                     </a>
                     <a href="#!" className="home_card child">
-                       <CurrencyCard></CurrencyCard>
+                       <CountryCard></CountryCard>
                     </a>
                 </div>
             </section>
