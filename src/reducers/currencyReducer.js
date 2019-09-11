@@ -7,6 +7,9 @@ export default function (state = initialState, action) {
         case 'ADD_COUNTRY': return {
             country: [action.payload]
         }
+        case 'ADD_VALUE': return {
+            convertedCurrency: [action.payload]
+        }
         default:
             return state
     }
