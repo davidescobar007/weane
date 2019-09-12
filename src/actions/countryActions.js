@@ -4,9 +4,3 @@ export const addCountryInfoAction = country => {
         payload: country,
     }
 }
-export const convertedValueAction = value => {
-    return {
-        type: 'ADD_VALUE',
-        payload: value
-    }
-}
