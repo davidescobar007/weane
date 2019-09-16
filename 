@@ -1,0 +1,77 @@
+[33mcommit 4557a893ca22b9bcf419ab30940c18aa87dc1429[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: davidescobar007 <davidescobar007@hotmail.com>
+Date:   Wed Sep 11 20:22:40 2019 -0500
+
+    getting currency info, fixing the useeffect at countryCard still left to be done,
+
+[33mcommit c5217e5d2aad7adfb2d0a20dfab065ecd4aa9bb9[m
+Author: DavidEscobar007 <jescobar573@misena.edu.co>
+Date:   Wed Sep 11 00:19:25 2019 -0500
+
+    not big changes yet
+
+[33mcommit 3a5ab31ac975bfdd7624d19dc3511b370a6da138[m
+Author: davidescobar007 <davidescobar007@hotmail.com>
+Date:   Tue Sep 10 16:55:06 2019 -0500
+
+    geeting currency converted. can not get the currency code, data to be showed at the view left to be done yet
+
+[33mcommit 9f317a742b85f98a43169ca2b449b0fd5047c764[m
+Author: davidescobar007 <davidescobar007@hotmail.com>
+Date:   Mon Sep 9 16:29:37 2019 -0500
+
+    weather card done, svg climate left to be done yet,
+
+[33mcommit d619085dcbde428671a755e4d958b8ab36a956e2[m
+Author: DavidEscobar007 <jescobar573@misena.edu.co>
+Date:   Mon Sep 9 00:49:55 2019 -0500
+
+    getting weather info and uploading it to the store from home component
+
+[33mcommit c1bc056710d0511d103be5ac983ce8d5994ed289[m
+Author: davidescobar007 <davidescobar007@hotmail.com>
+Date:   Fri Sep 6 17:31:58 2019 -0500
+
+    wtf am i doing?... getting info from climate api, but not showing it in the view yet.
+
+[33mcommit 9ccefbdda5c13a996b06e60dd417a67c6bf84c64[m
+Author: davidescobar007 <davidescobar007@hotmail.com>
+Date:   Thu Sep 5 17:13:43 2019 -0500
+
+    state with redux done for the weather, 'useSelector still does not work at Home.js component'
+
+[33mcommit 33969bcb5ab54feb2dd0ca9c438dc28a703938fb[m
+Author: DavidEscobar007 <jescobar573@misena.edu.co>
+Date:   Wed Sep 4 23:59:29 2019 -0500
+
+    changing the state at store file with redux 'changing the city at the store sate'
+
+[33mcommit 8f9677b11c28b67943a28d773d483e752f009f7e[m
+Author: davidescobar007 <davidescobar007@hotmail.com>
+Date:   Wed Sep 4 15:47:37 2019 -0500
+
+    store, and locationReducer files
+
+[33mcommit 43ef7e256cc620dce516e3233b095a8d3105e3bc[m
+Author: DavidEscobar007 <jescobar573@misena.edu.co>
+Date:   Tue Sep 3 23:48:55 2019 -0500
+
+    initial implementation of redux, configurin the store and reducer
+
+[33mcommit 68033ec426187dd7c61e06a67b9fb0c6825f2d9a[m
+Author: DavidEscobar007 <jescobar573@misena.edu.co>
+Date:   Tue Sep 3 20:42:22 2019 -0500
+
+    redux image guide
+
+[33mcommit 42e0bee472de5465ed8940592180288d19bebfc2[m
+Author: DavidEscobar007 <jescobar573@misena.edu.co>
+Date:   Wed Aug 28 23:49:01 2019 -0500
+
+    adding the readme.md
+
+[33mcommit b4b6ad64b71cfaf2a2b11ddd2cd2894ace223da6[m
+Author: DavidEscobar007 <jescobar573@misena.edu.co>
+Date:   Wed Aug 28 23:45:01 2019 -0500
+
+    weather and news app second version

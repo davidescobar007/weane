@@ -2,30 +2,34 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { addCountryInfoAction } from '../../actions/countryActions';
 import { convertedValueAction } from '../../actions/currencyActions';
+import { searchNewsAction } from '../../actions/newsActions'
 import axios from 'axios';
 import './Home.css';
 import Weather from '../Weather/weatherCard';
 import CountryCard from '../Country/countryCard';
+import News from '../News/News';
 
 
 function Home() {
     const countryCode = useSelector(state => state.weather.weather[0] === undefined ? state.weather.weather[0] : state.weather.weather[0].country);
-    
     const icon = useSelector(state => state.weather.weather[0] === undefined ? state.weather.weather[0] : state.weather.weather[0].icon);
+    const location = useSelector(state => state.location.location[0].location === undefined ? state.location.location[0] : state.location.location[0].location);
 
     useEffect(() => {
         getCountryInfo();
+        getNews();
         //console.log("hey")
     })
 
     const dispatch = useDispatch();
     const addCountryInfo = (countryInfo) => dispatch(addCountryInfoAction(countryInfo));
     const addConvertedCurrency = (convertedCurrency) => dispatch(convertedValueAction(convertedCurrency));
+    const addNews = (news) => dispatch(searchNewsAction(news));
 
     const getCountryInfo = async () => {
         if (countryCode !== undefined) {
             const urlCountry = `https://restcountries.eu/rest/v2/alpha/${countryCode}`;
-            let info = await axios.get(urlCountry);
+            const info = await axios.get(urlCountry);
             // console.log(info.data.currencies[0].code);
             addCountryInfo({
                 country: info.data.name,
@@ -39,19 +43,32 @@ function Home() {
             const currencyApiKey3 = "8bc4937eceb0d16c950d"; //jorgatsu3@yopmawil.com         
             const currencyApiKey4 = "35d0626d49ce6d46bbe9"; //jorgatsu4@yopmawil.com         
             const currencyApiKey5 = "de6bd5f52e288ad885f8"; //jorgatsu5@yopmawil.com 
-            
-                const urlCurrency = `https://free.currconv.com/api/v7/convert?q=USD_${info.data.currencies[0].code}&compact=ultra&apiKey=${currencyApiKey1}`;
-                let currency = await fetch(urlCurrency);
-                let currencyResult = await currency.json();
-                const currencyResultToArray = Object.entries(currencyResult);
-                console.log(currencyResultToArray[0][1]);
-                addConvertedCurrency({
-                    convertedValue: currencyResultToArray[0][1]
-                });
-        }
 
-      
-        
+            const urlCurrency = `https://free.currconv.com/api/v7/convert?q=USD_${info.data.currencies[0].code}&compact=ultra&apiKey=${currencyApiKey}`;
+            let currency = await fetch(urlCurrency);
+            let currencyResult = await currency.json();
+            const currencyResultToArray = Object.entries(currencyResult);
+            // console.log(currencyResultToArray[0][1]);
+            addConvertedCurrency({
+                convertedValue: currencyResultToArray[0][1]
+            });
+        }
+    }
+
+    const getNews = async () => {
+        if (location !== undefined) {
+            const newsApiKey = "baf89e91a399451dbf982a015897aea1"
+            const newsUrl = `https://newsapi.org/v2/everything?q=${location}%20${countryCode}&apiKey=${newsApiKey}`;
+            const newsResult = await axios.get(newsUrl);
+            // console.log(newsResult.data.articles);
+            const news = [];
+            for (const i of newsResult.data.articles) {
+                news.push(i);
+            }
+            addNews({
+                news: news
+            })
+        }
     }
 
     return (
@@ -80,27 +97,7 @@ function Home() {
                     <div className="child news container">
                         News
                     </div>
-                    <div className="child container">
-                        <a className="child home_card" href="#!">
-                            <article >
-                                <h2>lorem ipsum lorem ipsum lorem ipsum lorem ipsum</h2>
-                                <p>lorem ipsum lorlorem ipsum lorem ipsum lorem ipsum</p>
-                            </article>
-                        </a>
-                        <a className="child home_card" href="#!">
-                            <article >
-                                <h2>lorem ipsum lorem ipsum lorem ipsum lorem ipsum</h2>
-                                <p>lorem ipsum lorlorem ipsum lorem ipsum lorem ipsum</p>
-                            </article>
-                        </a>
-                        <a className="child home_card" href="#!">
-                            <article >
-                                <h2>lorem ipsum lorem ipsum lorem ipsum lorem ipsum</h2>
-                                <p>lorem ipsum lorlorem ipsum lorem ipsum lorem ipsum</p>
-                            </article>
-                        </a>
-                    </div>
-
+                    <News></News>
                 </div>
             </section>
         </div>

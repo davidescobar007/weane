@@ -1,5 +1,5 @@
 const initialState = {
-    location:["Berlin"]
+    location:["Bogota"]
 }
 
 export default function(state = initialState, action){
