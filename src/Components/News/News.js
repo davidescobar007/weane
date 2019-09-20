@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import './News.css'
+
 
 
 function News() {
@@ -11,12 +11,14 @@ function News() {
     return (
         <div className="container child">
             {news.slice(0, 4).map(news => (
-                <a key={news.id} className="child home_card news_card" href="#!">
-                    <article id="newsCard" style={{
-                        backgroundImage: `url(${news.urlToImage})`                        
-                    }}>
-                        <h1>{news.title}</h1>
-                        {/* <p>{news.description}</p> */}
+                <a key={news.id} className="child home_card news_card" href={news.url} target="_blank">
+                    <article className="child container">
+                        <div>
+                            <img id="image" src={news.urlToImage}></img>
+                        </div>
+                        <div>
+                            <h1>{news.title}</h1>                            
+                        </div>
                     </article>
                 </a>
             ))}

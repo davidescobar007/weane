@@ -96,8 +96,8 @@ function Home() {
             </section>
             <section>
                 <div className="home_news cointainer">
-                    <div className="child news container">
-                        News
+                    <div className="child news_header_title container">
+                        See what is happening in {location}
                     </div>
                     <News></News>
                 </div>
