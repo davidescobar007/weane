@@ -10,7 +10,7 @@ function Weather() {
     const temperature = useSelector(state => state.weather.weather[0] === undefined ? state.weather.weather[0] : state.weather.weather[0].temp);
     const description = useSelector(state => state.weather.weather[0] === undefined ? state.weather.weather[0] : state.weather.weather[0].description);
     const icon = useSelector(state => state.weather.weather[0] === undefined ? state.weather.weather[0] : state.weather.weather[0].icon);
-
+    const flag = useSelector(state => state.country.country[0] === undefined ? state.country.country : state.country.country[0].flag);
     const weatherIcon = `http://openweathermap.org/img/wn/${icon}@2x.png`
     
     const dispatch = useDispatch();
@@ -39,7 +39,7 @@ function Weather() {
         searchWeater();
     })
     return (
-        <a href="#!" className="home_card container child">
+        <a href="#!" className="home_card weather_card container child" style={{backgroundImage:`url("${flag}")`}}>
             <div className="child">
                 <header >
                     <h2>{location}</h2>

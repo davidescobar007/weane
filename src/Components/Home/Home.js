@@ -45,7 +45,7 @@ function Home() {
             const currencyApiKey4 = "35d0626d49ce6d46bbe9"; //jorgatsu4@yopmawil.com         
             const currencyApiKey5 = "de6bd5f52e288ad885f8"; //jorgatsu5@yopmawil.com 
 
-            const urlCurrency = `https://free.currconv.com/api/v7/convert?q=USD_${info.data.currencies[0].code}&compact=ultra&apiKey=${currencyApiKey}`;
+            const urlCurrency = `https://free.currconv.com/api/v7/convert?q=USD_${info.data.currencies[0].code}&compact=ultra&apiKey=${currencyApiKey2}`;
             let currency = await fetch(urlCurrency);
             let currencyResult = await currency.json();
             const currencyResultToArray = Object.entries(currencyResult);
@@ -59,7 +59,8 @@ function Home() {
     const getNews = async () => {
         if (location !== undefined) {
             const newsApiKey = "baf89e91a399451dbf982a015897aea1"
-            const newsUrl = `https://newsapi.org/v2/everything?q=${location}%20${countryCode}&apiKey=${newsApiKey}`;
+            const newsApiKey1 = "150480afee904e4d861e8138122cde71"
+            const newsUrl = `https://newsapi.org/v2/everything?q=${location}%20${countryCode}&apiKey=${newsApiKey1}`;
             const newsResult = await axios.get(newsUrl);
             // console.log(newsResult.data.articles);
             const news = [];
@@ -78,17 +79,7 @@ function Home() {
             <section>
                 <div className="home_weather container">
                     <Weather></Weather>
-                    <a href="#!" className="home_card child">
-                        <article>
-                            <header>
-                                <h2>We are so sorry :(</h2>
-                            </header>
-                            <div>
-                                <h4>This feature will be available soon</h4>
-                                <h4></h4>
-                            </div>
-                        </article>
-                    </a>
+                  
                     <a href="#!" className="home_card child">
                         <CountryCard></CountryCard>
                     </a>
@@ -97,7 +88,7 @@ function Home() {
             <section>
                 <div className="home_news cointainer">
                     <div className="child news_header_title container">
-                        See what is happening in {location}
+                        <h1>See what is happening in {location}</h1>
                     </div>
                     <News></News>
                 </div>
