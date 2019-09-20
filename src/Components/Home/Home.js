@@ -4,6 +4,7 @@ import { addCountryInfoAction } from '../../actions/countryActions';
 import { convertedValueAction } from '../../actions/currencyActions';
 import { searchNewsAction } from '../../actions/newsActions'
 import axios from 'axios';
+import uuid from 'uuid/v4';
 import './Home.css';
 import Weather from '../Weather/weatherCard';
 import CountryCard from '../Country/countryCard';
@@ -66,6 +67,7 @@ function Home() {
                 news.push(i);
             }
             addNews({
+                id : uuid,
                 news: news
             })
         }
